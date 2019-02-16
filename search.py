@@ -27,3 +27,17 @@ def binary_search(nums, elm):
 		elif elm < nums[mid]:
 			nums = nums[:mid]
 	return False
+
+def binary_search_idx(nums, elm):
+	idx = 0
+	while nums:
+		mid = int(len(nums)/2)
+		if elm == nums[mid]:
+			return idx + mid
+		elif elm > nums[mid]:
+			nums = nums[mid+1:]
+			idx += mid + 1
+		elif elm < nums[mid]:
+			nums = nums[:mid]
+	return None
+
