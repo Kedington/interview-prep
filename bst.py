@@ -6,7 +6,7 @@ class TreeNode:
 		self.left = None
 		self.right = None
 
-class Tree:
+class BinarySearchTree:
 	def __init__(self, val):
 		self.root = TreeNode(val)
 	
@@ -26,7 +26,26 @@ class Tree:
 					return
 				else:
 					next_node = next_node.right
+			else:
+				return
+
+	def get_node(self, val):
+		next_node = self.root
 			
+		while next_node:
+			if val < next_node.val:
+				if not next_node.left:
+					return None
+				else:
+					next_node = next_node.left
+			elif val > next_node.val:
+				if not next_node.right:
+					return None
+				else:
+					next_node = next_node.right
+			else:
+				return next_node	
+
 	def print_tree(self):
 		stack = []
 		stack.append(self.root)
